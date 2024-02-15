@@ -16,9 +16,9 @@ L'applicazione offre le seguenti funzionalità:
 
 - Esporta elenco Riviste: Consente di esportare l'elenco delle riviste in un file CSV.
 
-### Struttura del Progetto
+### Struttura del Progetto
 
-#### Il progetto è organizzato nei seguenti file:
+#### Il progetto è organizzato nei seguenti file:
 
 - Menu2.java: Il file principale dell'applicazione contenente il menu di controllo e il loop per l'interazione utente.
 
