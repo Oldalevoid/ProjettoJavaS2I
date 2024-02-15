@@ -14,4 +14,21 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/start2impactoldani/abbonamenti - abbonamenti (2).csv</name>
+			<type>1</type>
+			<location>/Users/oldale98/Desktop/ProjettoJava/abbonamenti - abbonamenti (2).csv</location>
+		</link>
+		<link>
+			<name>src/start2impactoldani/riviste (4).csv</name>
+			<type>1</type>
+			<location>/Users/oldale98/Desktop/ProjettoJava/riviste (4).csv</location>
+		</link>
+		<link>
+			<name>src/start2impactoldani/utenti (3).csv</name>
+			<type>1</type>
+			<location>/Users/oldale98/Desktop/ProjettoJava/utenti (3).csv</location>
+		</link>
+	</linkedResources>
 </projectDescription>

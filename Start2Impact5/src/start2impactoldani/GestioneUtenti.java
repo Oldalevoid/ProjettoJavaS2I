@@ -51,23 +51,18 @@ class Utente {
         return id + ";" + name + ";" + surname + ";" + dateOfBirth + ";" + address + ";" + idNumber;
     }
 }
-public class GestioneUtenti  {
-	
-	
-	private static final String CSV_FILE = "/Users/oldale98/Desktop/ProjettoJava/utenti (3).csv";
-	private static final String CSV_SEPARATOR = ";";
+
+public class GestioneUtenti {
+    private static final String CSV_FILE = "/Users/oldale98/Desktop/ProjettoJava/utenti (3).csv";
+    private static final String CSV_SEPARATOR = ";";
     private static final List<Utente> utenti = leggiUtentiDaCSV();
-   
-   
 
     public static void main(String[] args) {
-    	
-    menuGestioneUtenti(utenti);
-       
+        menuGestioneUtenti(utenti);
     }
 
     public static void menuGestioneUtenti(List<Utente> utenti) {
-              Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         int scelta = -1;
         while (scelta != 0) {
@@ -110,7 +105,6 @@ public class GestioneUtenti  {
             }
         }
         scanner.close();
-        aggiornaCSV(utenti);
     }
 
     private static Utente chiediNuovoUtente(Scanner scanner, int nuovoId) {
@@ -141,7 +135,7 @@ public class GestioneUtenti  {
 
         return new Utente(Integer.toString(nuovoId), nome, cognome, dataDiNascita, indirizzo, id);
     }
-    
+
     private static boolean isValidDateFormat(String date) {
         if (date == null || date.isEmpty()) {
             return false;
@@ -181,7 +175,10 @@ public class GestioneUtenti  {
         }
         int maxDayOfMonth;
         switch (month) {
-            case 4: case 6: case 9: case 11:
+            case 4:
+            case 6:
+            case 9:
+            case 11:
                 maxDayOfMonth = 30;
                 break;
             case 2:
@@ -210,8 +207,6 @@ public class GestioneUtenti  {
                 Utente utente = new Utente(data[0], data[1], data[2], data[3], data[4], data[5]);
                 utenti.add(utente);
             }
-           
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -220,10 +215,12 @@ public class GestioneUtenti  {
 
     private static void aggiungiUtente(List<Utente> utenti, Utente nuovoUtente) {
         utenti.add(nuovoUtente);
+        aggiornaCSV(utenti); // Chiamata per aggiornare il file CSV dopo l'aggiunta di un utente
     }
 
     private static void rimuoviUtente(List<Utente> utenti, String nome, String cognome) {
         utenti.removeIf(utente -> utente.name.equalsIgnoreCase(nome) && utente.surname.equalsIgnoreCase(cognome));
+        aggiornaCSV(utenti); // Chiamata per aggiornare il file CSV dopo la rimozione di un utente
     }
 
     private static void visualizzaListaUtenti(List<Utente> utenti) {
@@ -239,6 +236,7 @@ public class GestioneUtenti  {
             for (Utente utente : utenti) {
                 pw.println(utente);
             }
+            pw.flush(); // Assicura che i dati siano scritti sul file
         } catch (IOException e) {
             e.printStackTrace();
         }

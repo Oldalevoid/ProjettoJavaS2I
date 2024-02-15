@@ -155,6 +155,7 @@ public class GestioneAbbonamenti  {
     }
 
 
+
     static ArrayList<Abbonamento> leggiAbbonamentiDaFile() {
         ArrayList<Abbonamento> abbonamenti = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE))) {
@@ -179,11 +180,14 @@ public class GestioneAbbonamenti  {
 
     private static void aggiungiAbbonamento(ArrayList<Abbonamento> abbonamenti, Abbonamento nuovoAbbonamento) {
         abbonamenti.add(nuovoAbbonamento);
+        aggiornaCSV(abbonamenti); // Aggiorna il file CSV dopo l'aggiunta di un abbonamento
     }
 
     private static void disdiciAbbonamento(ArrayList<Abbonamento> abbonamenti, int idAbbonamentoDaDisdire) {
         abbonamenti.removeIf(abbonamento -> abbonamento.getId() == idAbbonamentoDaDisdire);
+        aggiornaCSV(abbonamenti); // Aggiorna il file CSV dopo la rimozione di un abbonamento
     }
+
 
     private static void visualizzaAbbonamentiUtente(ArrayList<Abbonamento> abbonamenti, ArrayList<Rivista> riviste, int idUtente) {
         System.out.println("Abbonamenti dell'utente con ID " + idUtente + ":");
